@@ -5,7 +5,7 @@
 zilean-base     用户、数据字典等常见的实体类，为独立模块  
 zilean-cache    redis、ehcache等，为独立模块  
 zilean-common   各种常量、工具类等，为独立模块  
-zilean-mybatis  jpa自动建表、mybatis二次封装，以简化简单的crud，为独立模块  
+zilean-mybatis  jpa自动建表、mybatis二次封装，以简化重复的crud，为独立模块  
 zilean-test     框架单元测试，为演示模块
 ```
 
