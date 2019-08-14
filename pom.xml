@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <!-- lookup parent from repository -->
+        <relativePath/>
+    </parent>
+    <groupId>cn.odboy</groupId>
+    <artifactId>zilean</artifactId>
+    <version>1.0.0</version>
+    <name>zilean</name>
+    <description>Zilean生态</description>
+    <!-- 注意：修改jar为pom -->
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>zilean-common</module>
+        <module>zilean-base</module>
+        <module>zilean-cache</module>
+        <module>zilean-mybatis</module>
+        <module>zilean-test</module>
+        <!--<module>zilean-bms-service</module>-->
+        <!--<module>zilean-bms-web</module>-->
+        <!--<module>zilean-bms-web-main</module>-->
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 跳过测试阶段 -->
+        <skipTests>true</skipTests>
+        <!-- 公共配置块 End -->
+        <springboot.version>2.1.6.RELEASE</springboot.version>
+        <springboot.starter.version>2.1.0</springboot.starter.version>
+        <mysql.connector.version>5.1.38</mysql.connector.version>
+        <lombok.version>1.18.8</lombok.version>
+        <hutool.version>4.5.16</hutool.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <springboot.druid>1.1.10</springboot.druid>
+        <redis.client.version>2.9.0</redis.client.version>
+    </properties>
+
+    <dependencies>
+        <!--thymeleaf 依赖，使用thymeleaf标签-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${springboot.version}</version>
+            <!-- 移除嵌入式tomcat插件 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <!--ServletApi 依赖-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--分布式spring-session 依赖-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+            <version>2.1.8.RELEASE</version>
+        </dependency>
+        <!--mail 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
+        <!--mysql 依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+            <!--<scope>runtime</scope>-->
+        </dependency>
+        <!--config file 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${springboot.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <!--junit 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${springboot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--其他依赖-->
+        <!-- 数据库连接池 -->
+        <!-- 此处的引用有两种 -->
+        <!-- 一种是直接引用druid包,另一种是引用starter方式 -->
+        <!-- 在此处我引用的是start包,为什么呢，因为方便呀... -->
+        <!-- 注:如果没有该包,application.properties/application.yml 中将不会出现关于druid的提示 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${springboot.druid}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- 注意: 我不需要这个是个可运行的项目，所以修改原来的打包方式为maven打包方式 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
