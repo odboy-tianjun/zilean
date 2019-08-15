@@ -22,7 +22,7 @@ src\main\java\cn\odboy\zilean\test\ZileanTestApplication.java
 3、在者就能够运行测试用例查看效果了
 src\test\java\cn\odboy\zilean\test\demo\SqlBuilderTest.java
 
-4、具体如何使用作者基本做到一看就明白我就不多说了.
+4、具体如何使用我基本做到一看就明白就不多说了
 ```
 
 ### 联系方式
