@@ -27,8 +27,12 @@ import java.util.List;
 public class SqlBuilderTest extends ZileanTestApplicationTests {
     @Autowired
     private IUserDao userDao;
-
+	
+	/**
+	 * 单元测试默认是回滚的，所以得加@Rollback(false)才能看到效果
+	 */
     @Test
+	@Rollback(false)
     public void testInsert() {
         log.info("新增");
         User user;
