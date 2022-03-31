@@ -36,7 +36,7 @@
         <!-- 跳过测试阶段 -->
         <skipTests>true</skipTests>
         <!-- 公共配置块 End -->
-        <springboot.version>2.1.6.RELEASE</springboot.version>
+        <springboot.version>2.5.12</springboot.version>
         <springboot.starter.version>2.1.0</springboot.starter.version>
         <mysql.connector.version>5.1.38</mysql.connector.version>
         <lombok.version>1.18.8</lombok.version>
